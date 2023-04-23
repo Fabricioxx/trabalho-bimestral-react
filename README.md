@@ -13,10 +13,8 @@
  * Tratar caso a API retorne vazio (Exemplo - Iron Man)
  
 **Implementação da tela cadastro:**
+  
 
-<<<<<<< HEAD
-  [Link com layout das telas e mais especificações:](https://docs.google.com/presentation/d/1lFT1eMEJKzUk659pLdl2jCW_mrGOW46_xKV0YkqIHjU/edit?usp=sharing)   
-=======
  * Formulário de cadastro seguindo o layout proposto.
  * Campo numero do cartao em Dados Bancários com no maximo 20 digitos
  * CVC com e com no maximo 3 digitos
@@ -24,7 +22,6 @@
  * Logar via console todo o objeto (Nome, Telefone, Endereco, PlanoEscolhido, NomeCartao, NumCartao e CVC.). 
 
   [Link com layout das telas e mais especificações](https://docsgoogle.com/presentation1lFT1eMEJKzUk659pLdl2jCW_mrGOW46_xKV0YkqIHjU/edit?usp=sharing)   
->>>>>>> 13a0ae0122d20b8425e1ce32b3dacc862c0ff79a
 
   ### Terminal
 
