@@ -15,7 +15,7 @@
      * Botão de plano mudando o estilo caso seja clicado. 
      * Logar via console todo o objeto (Nome, Telefone, Endereco, PlanoEscolhido, NomeCartao, NumCartao e CVC.). 
 
-  [Link com layout das telas e mais especificações:](https://docsgoogle.com/presentation1lFT1eMEJKzUk659pLdl2jCW_mrGOW46_xKV0YkqIHjU/edit?usp=sharing)   
+  [Link com layout das telas e mais especificações:](https://docs.google.com/presentation/d/1lFT1eMEJKzUk659pLdl2jCW_mrGOW46_xKV0YkqIHjU/edit?usp=sharing)   
 
   ### Terminal
 
