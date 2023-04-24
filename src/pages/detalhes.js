@@ -165,12 +165,7 @@ function Detalhes() {
                 <a href={`/`}>
                   <div className="btn btn-primary">Assistir</div>
                 </a>
-
-                
-
-                
               </div>
-              
             </div>
           </div>
           <hr></hr>
