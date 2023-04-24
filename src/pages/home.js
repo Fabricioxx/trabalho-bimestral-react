@@ -50,7 +50,7 @@ function Home() {
 
   const [termoDeBusca, setTermoDeBusca] = useState(''); //criar uma variável para armazenar o valor digitado no input
 
-  const [filmesOrdenados, setFilmesOrdenados] = useState(null); //criar uma variável para armazenar o valor digitado no input
+  const [filmesOrdenados, setFilmesOrdenados] = useState("1"); //criar uma variável para armazenar o valor digitado no input
 
 
      function handleTermoDeBusca(termo) {

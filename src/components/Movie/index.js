@@ -6,6 +6,10 @@ import React from 'react';
 
 function Movie(props){
 
+
+  props.filmes.sort(function (a, b) {
+    return a.nome.localeCompare(b.nome);
+  });
   
 
     if (props.filmesordenados !== '') {
@@ -24,10 +28,9 @@ function Movie(props){
         });
 
       }
-
-
     }
 
+    
     
 
 
@@ -61,9 +64,11 @@ function Movie(props){
     
         return(
         
+
+          
+
           <div className="container text-center">
           <div class="row">
-    
             {filmesFiltrados.map((filme, i) => (
               <div className="col-4" key={i}>
                 <div className="card">
@@ -92,6 +97,13 @@ function Movie(props){
 
     <div className="container text-center">
       <div class="row">
+
+        {/* um metodo para a lista ficar ordenada por nome antes de listar os filmes na tela */}
+
+       
+
+
+      
 
         {props.filmes.map((filme, i) => (
           <div className="col-3 pt-0" key={i}>

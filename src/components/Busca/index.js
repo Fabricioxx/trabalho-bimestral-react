@@ -5,7 +5,7 @@ import React, { useState } from "react";
 function Busca(props) {
   const [termoDeBusca, setTermoDeBusca] = useState("");
 
-  const [Ordenacao, setOpcaoDeOrdenacao] = useState("");
+  const [Ordenacao, setOpcaoDeOrdenacao] = useState('');
 
   function handleFilmesOrdenados(filmesordenar) {
 

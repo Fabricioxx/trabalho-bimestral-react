@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ordenar.css";
 
 function Ordenar(props) {
-  const [opcaoDeOrdenacao, setOpcaoDeOrdenacao] = useState("");
+  const [opcaoDeOrdenacao, setOpcaoDeOrdenacao] = useState('');
 
 
 const handleOrdenacaoChange = (event) => {
@@ -10,20 +10,9 @@ const handleOrdenacaoChange = (event) => {
     // ordenação dos filmes de acordo com a opção selecionada
     setOpcaoDeOrdenacao(event.target.value);
 
-    handleClick();
+    props.onOpcaoDeOrdenacao(opcaoDeOrdenacao);
     
 }  
-
-const handleClick = () => {
-    // função para enviar o valor digitado no input para o componente pai
-
-    props.onOpcaoDeOrdenacao(opcaoDeOrdenacao);
-
-    
-
-    
-  };
-
       
 
   return (
