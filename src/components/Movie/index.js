@@ -112,7 +112,7 @@ function Movie(props){
                   </a>
 
 
-                  <a href={`/play/${filme.nome}`} >
+                  <a href={ `/`/*`/play/${filme.nome}`*/} >
                   <div className="btn btn-primary">
                     Assitir
                   </div>
