@@ -3,21 +3,30 @@ import "./busca.css";
 import React, { useState } from "react";
 
 function Busca(props) {
+
   const [termoDeBusca, setTermoDeBusca] = useState("");
 
   function handleFilmesOrdenados(filmesordenar) {
-    
     props.onOpcaoDeOrdenacao(filmesordenar);
   }
 
   function handleChange(event) {
     const value = event.target.value;
+
+    props.onTermoDeBusca(value);
+
     setTermoDeBusca(value);
   }
 
   function handleClick() {
+
     props.onTermoDeBusca(termoDeBusca);
+
+   
   }
+
+   
+
 
   return (
     <div>
@@ -28,7 +37,7 @@ function Busca(props) {
           placeholder="Digite o nome do filme"
           aria-label="Digite o nome do filme"
           aria-describedby="button-addon2"
-          value={termoDeBusca}
+          value={props.termoDeBusca}
           onChange={handleChange}
         />
         <div className="input-group-append">
