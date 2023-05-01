@@ -9,6 +9,7 @@ function Header() {
 
   const { pathname } = useLocation(); // pathname - propriedade do objeto location que retorna o caminho da URL atual.
 
+  // useEffect() - hook do react que executa uma função sempre que um componente é renderizado na tela.
   useEffect(() => {
     setCurrentUrl(pathname);
   }, [pathname]);

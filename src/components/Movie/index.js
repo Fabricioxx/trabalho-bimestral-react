@@ -9,10 +9,8 @@ function Movie(props) {
   
   const handleSubmit = (event) => {
     // event.preventDefault(); - estava dando erro ao usar ao clicar no componente button
- 
     alert(`PLAY Filme` );
     
-
   };
 
 
@@ -78,7 +76,7 @@ function Movie(props) {
                     <Link to={`/detalhes/${filme.id}`}>Detalhes</Link>
                   {/*<Link to={`/play/${filme.titulo}`} className="btn btn-primary">Assistir</Link>*/}  
 
-                 {filme.assistido ? <Button  onClick={handleSubmit} isFormChanged={true}  clicado={'Assistido'} naoclicado={'Assistir'}/> : <Button  onClick={handleSubmit} isFormChanged={false}  clicado={'Assistido'} naoclicado={'Assistir'} />}
+                 {filme.assistido ? <Button  onClick={handleSubmit} isFormChanged={true}  clicado={'Assistir Novamente'} naoclicado={'Assistir'}/> : <Button  onClick={handleSubmit} isFormChanged={false}  clicado={'Assistido'} naoclicado={'Assistir'} />}
                  
                  {/** <Button  onClick={handleSubmit} isFormChanged={isFormChanged}  clicado={'Assistido'} naoclicado={'Assistir'} /> */} 
 
