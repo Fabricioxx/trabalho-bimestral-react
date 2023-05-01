@@ -4,26 +4,24 @@ import "./ordenar.css";
 function Ordenar(props) {
   const [opcaoDeOrdenacao, setOpcaoDeOrdenacao] = useState('');
 
-
-const handleOrdenacaoChange = (event) => {
-
-    // ordenação dos filmes de acordo com a opção selecionada
+  const handleOrdenacaoChange = (event) => {
     setOpcaoDeOrdenacao(event.target.value);
-
-    props.onOpcaoDeOrdenacao(opcaoDeOrdenacao);
     
-}  
+    if (event.target.value !== '') {
+      props.onOpcaoDeOrdenacao(event.target.value);
+    }
+  }  
       
 
   return (
     <div className="ordenar">
       <select
-        class="form-select"
+        className="form-select"
         aria-label="Default select example"
         value={opcaoDeOrdenacao}
         onChange={handleOrdenacaoChange}
       >
-        <option selected>Ordenar</option>
+        <option value="">Ordenar</option>
         <option value="1">Titulo</option>
         <option value="2">Ano</option>
         <option value="3">Nota</option>
@@ -33,3 +31,4 @@ const handleOrdenacaoChange = (event) => {
 }
 
 export default Ordenar;
+

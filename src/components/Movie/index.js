@@ -20,68 +20,65 @@ function Movie(props) {
   }, []);
 
   useEffect(() => {
-    setIsLoading(true);
-    const busca = props.termoDeBusca
-      ? listFilme.filter(filme =>
-          filme.titulo.toLowerCase().includes(props.termoDeBusca.toLowerCase())
-        )
-      : listFilme;
-
-    switch (props.filmesOrdenados) {
-      case "1":
-        busca.sort((a, b) => a.titulo.localeCompare(b.titulo));
-        break;
-      case "2":
-        busca.sort((a, b) => b.titulo.localeCompare(a.titulo));
-        break;
-      case "3":
-        busca.sort((a, b) => a.ano - b.ano);
-        break;
-      case "4":
-        busca.sort((a, b) => b.ano - a.ano);
-        break;
-      case "5":
-        busca.sort((a, b) => b.nota - a.nota);
-        break;
-      case "6":
-        busca.sort((a, b) => a.nota - b.nota);
-        break;
-      default:
-        break;
+    if (props.termoDeBusca) {
+      const busca = listFilme.filter(filme =>
+        filme.titulo.toLowerCase().includes(props.termoDeBusca.toLowerCase())
+      );
+      setListFilme(busca);
     }
+  }, [props.termoDeBusca]);
 
-    setListFilme(busca);
-    setIsLoading(false);
-  }, [props.termoDeBusca, props.filmesOrdenados]);
+  useEffect(() => {
+    if (props.filmesOrdenados) {
+      let busca = [...listFilme];
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+      switch (props.filmesOrdenados) {
+        case "1":
+          busca.sort((a, b) => a.titulo.localeCompare(b.titulo));
+          break;
+        case "2":
+          busca.sort((a, b) => a.ano - b.ano);
+          break;
+        case "3":
+          busca.sort((a, b) => b.nota - a.nota);
+          break;
+        default:
+          break;
+      }
+
+      setListFilme(busca);
+    }
+  }, [props.filmesOrdenados, listFilme]);
 
   return (
     <div className="container text-center">
-      <div className="row">
-        {listFilme.map((filme, i) => (
-          <div className="col-3 pt-0" key={i}>
-            <div className="card">
-              <img src={filme.poster} alt={filme.titulo} className="card-img-top" />
-              <div className="card-body">
-                <h6 className="card-title">{filme.titulo} - ({filme.ano})</h6>
-                <p>{filme.nota}</p>
-                <div className="d-grid gap-2 col-6 mx-auto">
-                  <Link to={`/detalhes/${filme.id}`}>Detalhes</Link>
-                  <Link to={`/play/${filme.titulo}`} className="btn btn-primary">Assistir</Link>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <div className="row">
+          {listFilme.map((filme, i) => (
+            <div className="col-3 pt-0" key={i}>
+              <div className="card">
+                <img src={filme.poster} alt={filme.titulo} className="card-img-top" />
+                <div className="card-body">
+                  <h6 className="card-title">{filme.titulo} - ({filme.ano})</h6>
+                  <p>{filme.nota}</p>
+                  <div className="d-grid gap-2 col-6 mx-auto">
+                    <Link to={`/detalhes/${filme.id}`}>Detalhes</Link>
+                    <Link to={`/play/${filme.titulo}`} className="btn btn-primary">Assistir</Link>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
 
 export default Movie;
+
 
 
 
