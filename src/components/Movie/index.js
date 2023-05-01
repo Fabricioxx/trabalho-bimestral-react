@@ -1,9 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Button from '../Button';
 
 function Movie(props) {
   const [listFilme, setListFilme] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [isFormChanged, setIsFormChanged] = useState(false);
+
+
+  const handleSubmit = (event) => {
+    // event.preventDefault(); - estava dando erro ao usar ao clicar no componente button
+ 
+    
+
+  };
+
 
   useEffect(() => {
     setIsLoading(true);
@@ -65,7 +77,13 @@ function Movie(props) {
                   <p>{filme.nota}</p>
                   <div className="d-grid gap-2 col-6 mx-auto">
                     <Link to={`/detalhes/${filme.id}`}>Detalhes</Link>
-                    <Link to={`/play/${filme.titulo}`} className="btn btn-primary">Assistir</Link>
+                  {/*<Link to={`/play/${filme.titulo}`} className="btn btn-primary">Assistir</Link>*/}  
+
+                 {filme.assistido ? <Button  onClick={handleSubmit} isFormChanged={true}  clicado={'Assistido'} naoclicado={'Assistir'}/> : <Button  onClick={handleSubmit} isFormChanged={false}  clicado={'Assistido'} naoclicado={'Assistir'} />}
+                 
+
+                 {/** <Button  onClick={handleSubmit} isFormChanged={isFormChanged}  clicado={'Assistido'} naoclicado={'Assistir'} /> */} 
+
                   </div>
                 </div>
               </div>

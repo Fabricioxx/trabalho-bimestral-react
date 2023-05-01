@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import Comentarios from "../components/Comentarios";
 import React, { useState, useEffect } from 'react';
+import Button from "../components/Button";
 
 
 const comentarios = [ {
@@ -22,6 +23,18 @@ function Detalhes() {
 
   const [filme, setFilme] = useState(null);
   const [erro, setErro] = useState(false);
+
+
+ const handleSubmit = (event) => {
+
+   // event.preventDefault();
+
+    alert(
+
+      `PLAY Filme: ${filme.titulo}`
+    );
+  };
+
 
   useEffect(() => {
     fetch(`https://my-json-server.typicode.com/marycamila184/moviedetails/moviedetails/${id}`)
@@ -73,9 +86,7 @@ function Detalhes() {
               <p>Nota: {filme.nota}</p> */}
               
 
-              <a href={`/`}>
-                <div className="btn btn-primary">Assistir</div>
-              </a>
+              {filme.assistido ? <Button  onClick={handleSubmit} isFormChanged={true}  clicado={'Assistido'} naoclicado={'Assistir'}/> : <Button  onClick={handleSubmit} isFormChanged={false}  clicado={'Assistido'} naoclicado={'Assistir'} />}
             </div>
           </div>
         </div>

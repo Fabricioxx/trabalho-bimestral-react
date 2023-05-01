@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Title from "../components/Title";
+import Button from "../components/Button";
 
 function Cadastro() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,8 @@ function Cadastro() {
 
   const [plan, setPlan] = useState("free");
 
+  const [isFormChanged, setIsFormChanged] = useState(false);
+
   formData.plano = plan;
 
   const handleInputChange = (event) => {
@@ -23,10 +26,14 @@ function Cadastro() {
       ...formData,
       [name]: value,
     });
+
+    setIsFormChanged(true);
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+   // event.preventDefault(); - estava dando erro ao usar ao clicar no componente button
+
+   setIsFormChanged(false);
     const {
       nome,
       email,
@@ -128,6 +135,7 @@ function Cadastro() {
                   value={formData.numeroCartao}
                   onChange={handleInputChange}
                   name="numeroCartao"
+                  maxLength={20}
                 />
               </div>
               <div className="mb-3">
@@ -149,13 +157,14 @@ function Cadastro() {
                   CVV
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   className="form-control"
                   id="cvv"
                   placeholder="Digite o CVV do seu cartão de crédito"
                   value={formData.cvv}
                   onChange={handleInputChange}
                   name="cvv"
+                  maxLength={3}
                 />
               </div>
             </form>
@@ -185,15 +194,8 @@ function Cadastro() {
         </div>
         <hr></hr>
 
-        <div className="row">
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={handleSubmit}
-          >
-            Assinar
-          </button>
-        </div>
+          <Button onClick={handleSubmit} isFormChanged={isFormChanged} clicado={'Assinado'} naoclicado={'Assinar'} disabled={true} />
+
       </div>
     </div>
   );
