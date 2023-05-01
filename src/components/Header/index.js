@@ -1,8 +1,18 @@
-import React from "react";
 import "./header.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
 function Header() {
+  // useLocation() - hook do react-router-dom que retorna o objeto location que contém informações sobre a URL atual e fornece acesso ao objeto history.
+
+  const [currentUrl, setCurrentUrl] = useState(""); // currentUrl - estado que armazena a URL atual.
+
+  const { pathname } = useLocation(); // pathname - propriedade do objeto location que retorna o caminho da URL atual.
+
+  useEffect(() => {
+    setCurrentUrl(pathname);
+  }, [pathname]);
+
   return (
     <>
       <div class="container">
@@ -27,21 +37,33 @@ function Header() {
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link px-2 link-dark">
+              <a href="planos" class="nav-link px-2 link-dark">
                 Planos
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link px-2 link-dark">
+              <a href="sobre" class="nav-link px-2 link-dark">
                 Sobre
               </a>
             </li>
           </ul>
 
           <div class="col-md-3 text-end">
-            <Link to="/login" class="btn btn-outline-primary me-2">{"Login "} </Link>
+            <Link to="/login" class="btn btn-outline-primary me-2">
+              {"Login "}{" "}
+            </Link>
 
-            <Link to="/cadastro" class="btn btn-primary"> {"Cadastrar "}</Link>
+            {/* <Link to="/cadastro" class="btn btn-primary"> {"Cadastrar "}</Link> */}
+
+            {currentUrl === "/cadastro" ? (
+              <Link to="/" class="btn btn-primary">
+                {"Voltar "}
+              </Link>
+            ) : (
+              <Link to="/cadastro" class="btn btn-primary">
+                {"Cadastrar "}
+              </Link>
+            )}
           </div>
         </header>
       </div>

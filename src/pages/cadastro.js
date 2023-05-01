@@ -3,6 +3,8 @@ import Title from "../components/Title";
 import Button from "../components/Button";
 
 function Cadastro() {
+
+
   const [formData, setFormData] = useState({
     nome: "",
     email: "",

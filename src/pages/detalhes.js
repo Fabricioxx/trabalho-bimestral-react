@@ -29,10 +29,10 @@ function Detalhes() {
 
    // event.preventDefault();
 
-    alert(
+    alert(`PLAY Filme: ${filme.titulo}` );
 
-      `PLAY Filme: ${filme.titulo}`
-    );
+   filme.assistido = true;
+
   };
 
 

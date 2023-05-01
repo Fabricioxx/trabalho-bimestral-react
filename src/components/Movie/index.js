@@ -6,12 +6,11 @@ function Movie(props) {
   const [listFilme, setListFilme] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const [isFormChanged, setIsFormChanged] = useState(false);
-
-
+  
   const handleSubmit = (event) => {
     // event.preventDefault(); - estava dando erro ao usar ao clicar no componente button
  
+    alert(`PLAY Filme` );
     
 
   };
@@ -81,7 +80,6 @@ function Movie(props) {
 
                  {filme.assistido ? <Button  onClick={handleSubmit} isFormChanged={true}  clicado={'Assistido'} naoclicado={'Assistir'}/> : <Button  onClick={handleSubmit} isFormChanged={false}  clicado={'Assistido'} naoclicado={'Assistir'} />}
                  
-
                  {/** <Button  onClick={handleSubmit} isFormChanged={isFormChanged}  clicado={'Assistido'} naoclicado={'Assistir'} /> */} 
 
                   </div>
