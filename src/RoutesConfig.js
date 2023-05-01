@@ -9,7 +9,7 @@ export default function RoutesConfig() {
     return (
     <Routes>
         <Route path='/' element={<Home />} /> {/* rota page home */}
-        <Route path='/detalhes/:filme' element={<Detalhes/>} />
+        <Route path='/detalhes/:id' element={<Detalhes/>} />
         <Route path='/cadastro' element={<Cadastro/>} />
         <Route path='*' element={<ErrorPage/>} />
       </Routes>
