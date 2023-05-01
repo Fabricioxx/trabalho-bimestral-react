@@ -71,7 +71,7 @@ function Movie(props) {
                 <img src={filme.poster} alt={filme.titulo} className="card-img-top" />
                 <div className="card-body">
                   <h6 className="card-title">{filme.titulo} - ({filme.ano})</h6>
-                  <p>{filme.nota}</p>
+                  <p>Nota: {filme.nota}</p>
                   <div className="d-grid gap-2 col-6 mx-auto">
                     <Link to={`/detalhes/${filme.id}`}>Detalhes</Link>
                   {/*<Link to={`/play/${filme.titulo}`} className="btn btn-primary">Assistir</Link>*/}  
